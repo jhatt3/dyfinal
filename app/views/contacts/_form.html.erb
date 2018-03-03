@@ -11,49 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :contact_name %>
+  <div class="form-group">
+      <%= form.select :category_id, @categories.collect { |c| [c.name, c.id]}, {include_blank: 'Please select a category: ' } %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
+  <div class="form-group">
+    <%= form.text_field :name, id: :contact_name, placeholder: "Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :contact_address %>
+  <div class="form-group">
+    <%= form.text_field :email, id: :contact_email, placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :contact_city %>
+  <div class="form-group">
+    <%= form.text_field :address, id: :contact_address, placeholder: "Address" %>
   </div>
 
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :contact_state %>
+  <div class="form-group">
+    <%= form.text_field :city, id: :contact_city, placeholder: "City" %>
   </div>
 
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :contact_zip %>
+  <div class="form-group">
+    <%= form.text_field :state, id: :contact_state, placeholder: "State" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :contact_phone %>
+  <div class="form-group">
+    <%= form.text_field :zip, id: :contact_zip, placeholder: "Zip" %>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :contact_category %>
+  <div class="form-group">
+    <%= form.text_field :phone, id: :contact_phone, placeholder: "Phone" %>
   </div>
 
-  <div class="field">
-    <%= form.label :remarks %>
-    <%= form.text_area :remarks, id: :contact_remarks %>
+
+
+  <div class="form-group">
+    <%= form.text_area :remarks, id: :contact_remarks, placeholder: "Comments" %>
   </div>
 
   <div class="actions">
