@@ -20,3 +20,23 @@
     </li>
   </ul>
 </div>
+
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="openroad.png" alt="insert map here">
+  <div class="card-body">
+    <strong class="card-title"><%= @contact.name.titleize %></strong> - <%= @contact.category.name.titleize %><br>
+    <p class="showcontact">
+      <small><%= mail_to @contact.email.upcase %></small><br>
+      <%= @contact.address.titleize %><br>
+      <%= @contact.city.titleize %>, 
+      <%= @contact.state.upcase %>&nbsp;&nbsp;
+      <%= @contact.zip %><br>
+      <%= tel_to number_to_phone(@contact.phone) %>
+    </p>
+    <p class="showremarks">
+        <%= @contact.remarks %>
+    </p>
+  </div>
+</div>
