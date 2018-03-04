@@ -9,9 +9,56 @@
   </head>
 
   <body>
+      <div id="wrapper" class="">
+          <div class="overlay" style="display: none;"></div>
+          <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+             <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                   <a href="#"> Drop Yard</a>
+                </li>
+                <li>
+                   <%= link_to "    View Contacts", contacts_path, class: "glyphicon glyphicon-edit menu_link" %>
+                </li>
+                <li>
+                   <a href="#"><i class="glyphicon glyphicon-search menu_link"></i>  View Categories</a>
+                </li>
+                <li>
+                   <a href="#"><i class="glyphicon glyphicon-pencil menu_link"></i>  Sign Up</a>
+                </li>
+                <li>
+                   <a href="#"><i class="glyphicon glyphicon-thumbs-up menu_link"></i>  About</a>
+                </li>
+                <li>
+                   <a href="#"><i class="glyphicon glyphicon-bullhorn menu_link"></i>  Tell Us Something...</a>
+                </li>
+                <li>
+                   <a href="#"><i class="glyphicon glyphicon-wrench menu_link"></i>  Help</a>
+                </li>
+             </ul>
+          </nav>
+          <div id="page-content-wrapper">
+             <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+             <span class="hamb-top"></span>
+             <span class="hamb-middle"></span>
+             <span class="hamb-bottom"></span>
+             </button>
+             <div class="container">
+                <%= form_tag(root_path, method: :get) do %>
+                <%= text_field_tag :term, params[:term] %>
+                <%= submit_tag 'Search', name: nil %>
+              <% end %>
+              
+                <div class="container">
+                    <%= yield %>
+                </div>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+             </div>
+          </div>
+       </div>
+
+
+
+
+
   </body>
 </html>

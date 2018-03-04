@@ -1,10 +1,21 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
+  
+  # So what's going on here? First, we expose the sort_column and sort_direction methods to our helpers. 
+  # This allows us to utilize them outside the controller. Next, the index method orders by our current sort column 
+  # (specified by the sort_column method) and direction (specified by the sort_direction method). If you take a 
+  # look at the sort_column method you'll see that it checks the column names against a white list of column names.
+  # This prevents the user from sorting by columns we may not wish to have them sort by, id for instance. The sort
+  # direction method checks to make sure the direction is either asc or desc. Both methods return sensible defaults 
+  # otherwise. This helps keep the user from doing unexpected things with your data. 
+  helper_method :sort_column, :sort_direction
+
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+      @contacts = Contact.order("#{sort_column} #{sort_direction}").page(params[:page]).per(5)
+      @contacts = Contact.search(params[:term]).page(params[:page]).per(5)
   end
 
   # GET /contacts/1
@@ -65,10 +76,35 @@ class ContactsController < ApplicationController
     end
   end
 
+  # search methods to search by category or name
+  def contacts_by_name
+    @contacts = Contact.where(name: params[:name])
+    @name = params[:name]
+  end
+
+  def contacts_by_category
+    @contacts = Contact.where(category_id: params[:category_id])
+    @categories = Category.where(params[:category])
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
+    end
+
+    #sorting methods
+    def sortable_columns
+      ["Name", "Category"]
+    end
+  
+    def sort_column
+      sortable_columns.include?(params[:column]) ? params[:column] : "name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

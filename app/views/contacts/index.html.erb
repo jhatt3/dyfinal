@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Contacts</h1>
-
-<table class='table'>
+<%= paginate @contacts %>
+<table class='table table-bordered table-striped'>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= sort_link "Name" %></th>
+      <th><%= sort_link "Category" %></th>
       <th>Email</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
       <th>Phone</th>
-      <th>Category</th>
-      <th>Remarks</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,22 +17,16 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= link_to contact.name, contact %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.address %></td>
-        <td><%= contact.city %></td>
-        <td><%= contact.state %></td>
-        <td><%= contact.zip %></td>
-        <td><%= contact.phone %></td>
         <td><%= contact.category.name %></td>
-        <td><%= contact.remarks %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= mail_to contact.email %></td>
+        <td><%= tel_to contact.phone %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-xs btn-info" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Contact', new_contact_path, class: 'btn btn-primary' %>
+<div class="footer-nav">
+<%= link_to 'New Contact', new_contact_path, class: 'btn btn-sm btn-default new' %>
+</div>

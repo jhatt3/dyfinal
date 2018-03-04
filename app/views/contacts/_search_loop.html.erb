@@ -1,0 +1,28 @@
+<div class="row">
+
+    <table class='table table-bordered table-striped'>
+            <thead>
+              <tr>
+                <th><%= sort_link "Name" %></th>
+                <th><%= sort_link "Category" %></th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+          
+            <tbody>
+              <% @contacts.each do |contact| %>
+                <tr>
+                  <td><%= link_to contact.name, contact %></td>
+                  <td><%= contact.category.name %></td>
+                  <td><%= mail_to contact.email %></td>
+                  <td><%= tel_to contact.phone %></td>
+                  <td><%= link_to 'Edit', edit_contact_path(contact), class: "btn btn-xs btn-info" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          
+
+</div>

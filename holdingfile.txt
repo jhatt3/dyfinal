@@ -1,0 +1,22 @@
+........from index.html.erb......................
+        <td><%= link_to 'Show', contact %></td>
+
+
+<div class="nav">
+  <ul class="nav_list">
+    <li class='dropdown'>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <% @categories.each do |category| %>  
+            <%= link_to category.name, cat_path(category_id: category.id) %>
+          <% end %>
+        </ul>
+    </li>
+
+    <li><%= form_tag(name_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+    </li>
+  </ul>
+</div>
