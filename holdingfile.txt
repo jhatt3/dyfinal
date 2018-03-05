@@ -1,3 +1,8 @@
+
+ AIzaSyCfGnZi8AkRa26Zjc1NC_HOp7L6L1uR9Gw 
+
+
+
 ........from index.html.erb......................
         <td><%= link_to 'Show', contact %></td>
 
