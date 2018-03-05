@@ -1,6 +1,11 @@
 
  AIzaSyCfGnZi8AkRa26Zjc1NC_HOp7L6L1uR9Gw 
+geocoded_by :location
+after_validation :geocode
 
+def location
+  [#{address}, #{city}, #{state}, #{zip}].compact.join(", ")
+end
 
 
 ........from index.html.erb......................
