@@ -64,20 +64,52 @@ $(document).ready(function() {
 $(document).ready(function (){
 
 function initialize() {
+    var myCoords = new google.maps.LatLng(latitude,longitude);
 
     var mapOptions = {
-    center: { lat: 33.755165,  lng: -84.401016 },
-    zoom: 5,
-    scrollwheel:false
+       zoom: 15,
+       scrollwheel: false,   
+       center: myCoords
     };
 
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
     var marker = new google.maps.Marker({
-        position: myCoords,
-        map: map,
+      position: myCoords,
+      map: map,
+      title: address
     });
-    
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);    
-    }
-    
-    google.maps.event.addDomListener(window, 'load', initialize);
+ 
+    var contentString = '<h2>'+ address + '</h2>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
 });
+
+// function initialize() {
+//     var myCoords = new google.maps.LatLng(latitude,longitude);    
+    
+//     var mapOptions = {
+//     center: { lat: 33.755165,  lng: -84.401016 },
+//     zoom: 5,
+//     scrollwheel:false
+//     };
+
+//     var marker = new google.maps.Marker({
+//         position: myCoords,
+//         map: map
+//     });
+    
+//     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);    
+//     }
+    
+//     google.maps.event.addDomListener(window, 'load', initialize);
+// });

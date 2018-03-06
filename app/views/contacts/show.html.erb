@@ -1,34 +1,53 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-    <div class="panel">
-      <div class="panel-heading">
-          <strong><%= @contact.name.titleize %></strong> - <%= @contact.category.name.titleize %>
-      </div>
-        <div class="panel-body">
-          <div class="wrapper-panel">
-            <p class="showcontact">
-              <%= @contact.address.titleize %><br>
-              <%= @contact.city.titleize %>
-              <%= @contact.state.upcase %>&nbsp;&nbsp;
-              <%= @contact.zip %><br><br>
-              <small><%= mail_to @contact.email.upcase %></small><br>
-              <%= tel_to number_to_phone(@contact.phone) %>
-            </p>
+  <div class="grid show-page">
+    <div class="show-page-left">
+        <div class="panel">
+          <div class="panel-heading">
+              <strong><%= @contact.name.titleize %></strong> - <%= @contact.category.name.titleize %>
+          </div>
+          <div class="panel-body">
+            <div class="wrapper-panel">
+              <p class="showcontact">
+                <%= @contact.address.titleize %><br>
+                <%= @contact.city.titleize %>
+                <%= @contact.state.upcase %>&nbsp;&nbsp;
+                <%= @contact.zip %><br><br>
+                <small><%= mail_to @contact.email.upcase %></small><br>
+                <%= tel_to number_to_phone(@contact.phone) %>
+              </p>
+            </div>
             <div class="w3-panel remark-panel">
                 <p>
                     <%= @contact.remarks %>
                 </p>
             </div>
-            <div id="map-canvas"></div>
-          </div>  
+          </div>
+
         </div>
-</div>
-<div class="panel-footer">
-    <div class="footer-nav">
-      <%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-sx btn-default' %>
-      <%= link_to 'Delete', contact_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sx btn-default' %>
-      <%= link_to 'Back', contacts_path, class: 'btn btn-sx btn-default' %>
-      </div>
-      <div class="clearfix"></div>
+
+        <div class="footer-nav">
+          <%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-sx btn-default' %>
+          <%= link_to 'Delete', contact_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sx btn-default' %>
+          <%= link_to 'Back', contacts_path, class: 'btn btn-sx btn-default' %>
+        </div>
+                  <!-- <div class="clearfix"></div> -->
+
+                  <%= javascript_tag do %>
+                    var latitude = '<%= j @contact.latitude.to_s %>';
+                    var longitude = '<%= j @contact.longitude.to_s %>';
+                    var address = '<%= j @contact.city.to_s %>';
+                  <% end %>
+
+
+
+        </div>
+        <div class="show-grid-right">
+            <div id="map-canvas"></div>
+        </div>
+
+    <!-- <div class="show-grid-right"></div -->
+    </div>
+  </div>
 </div>

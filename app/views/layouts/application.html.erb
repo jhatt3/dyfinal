@@ -47,36 +47,37 @@
               <div class="content-container">
                   <%= yield %>
               </div>
-      </div>
+
+              <div class="map"></div>
+              
+            </div>
+            <footer class="footer">
+                <div class="grid">
+                  <div class="left">
+                    <div class="social">
+                      <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Github</li>
+                      </ul>
+                    </div>
+                  </div>
+              
+                  <div class="center"></div>
+              
+                  <div class="right">
+                    <div class="legal">
+                      <ul>
+                        <li><p>&copy; 2018. All Rights Reserved</p></li>
+                        <li><p></p></li>
+                        <li>Created by:&nbsp;  <a href="mailto://odloads@live.com">Jesse Hatton</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              </footer>
 
 
-<footer class="footer">
-  <div class="grid">
-    <div class="left">
-      <div class="social">
-        <ul>
-          <li>Facebook</li>
-          <li>Twitter</li>
-          <li>Github</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="center"></div>
-
-    <div class="right">
-      <div class="legal">
-        <ul>
-          <li><p>&copy; 2018. All Rights Reserved</p></li>
-          <li><p></p></li>
-          <li>Created by:&nbsp;  <a href="mailto://odloads@live.com">Jesse Hatton</a></li>
-        </ul>
-      </div>
-    </div>
-</div>
-</footer>
-  <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>">
-  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>"></script>
   </body>
 </html>

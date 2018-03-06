@@ -3,7 +3,7 @@ class Contact < ApplicationRecord
   after_validation :geocode
 
   def full_address
-    ["#{@contacts.address}, #{@contact.city}, #{@contact.state}, #{@contact.zip}"].compact.join(', ')
+    return "#{address}, #{city}, #{state}"
   end
 
     belongs_to :category
@@ -13,6 +13,6 @@ class Contact < ApplicationRecord
         else
           order('id DESC')
         end
-      end
+    end
       
 end
