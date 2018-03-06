@@ -23,14 +23,12 @@
             <div id="map-canvas"></div>
           </div>  
         </div>
-        <div class="panel-footer">
-          <div class="footer-nav">
-            <%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-sx btn-default' %>
-            <%= link_to 'Delete', contact_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sx btn-default' %>
-            <%= link_to 'Back', contacts_path, class: 'btn btn-sx btn-default' %>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-
+</div>
+<div class="panel-footer">
+    <div class="footer-nav">
+      <%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-sx btn-default' %>
+      <%= link_to 'Delete', contact_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sx btn-default' %>
+      <%= link_to 'Back', contacts_path, class: 'btn btn-sx btn-default' %>
+      </div>
+      <div class="clearfix"></div>
 </div>
