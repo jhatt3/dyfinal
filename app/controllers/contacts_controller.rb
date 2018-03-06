@@ -14,13 +14,18 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-      @contacts = Contact.order("#{sort_column} #{sort_direction}").page(params[:page]).per(5)
-      @contacts = Contact.search(params[:term]).page(params[:page]).per(5)
+    @contacts = Contact.all
+    @contacts = Contact.order("#{sort_column} #{sort_direction}")
   end
+
+  # contacts = Contact.search(params[:term]).page(params[:page]).per(15)
+  # @contacts = contacts.order("#{sort_column} #{sort_direction}")
+  
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    # @contacts = Contact.find(params[:id])
   end
 
   # GET /contacts/new
@@ -43,6 +48,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        UserMailer.welcome_email(@user).deliver_now
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
@@ -87,7 +93,6 @@ class ContactsController < ApplicationController
     @categories = Category.where(params[:category])
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -96,7 +101,7 @@ class ContactsController < ApplicationController
 
     #sorting methods
     def sortable_columns
-      ["Name", "Category"]
+      ["Name"]
     end
   
     def sort_column
@@ -109,6 +114,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :address, :city, :state, :zip, :phone, :category, :remarks, :category_id)
+      params.require(:contact).permit(:name, :email, :address, :city, :state, :zip, :phone, :category, :remarks, :category_id, :latitude, :longitude)
     end
 end

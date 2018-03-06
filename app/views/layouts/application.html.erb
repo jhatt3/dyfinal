@@ -4,66 +4,79 @@
     <title>Dyfinal</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  </head>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Eczar|Lora:700|Roboto+Slab" rel="stylesheet">   </head>
 
   <body>
     <div class="container jumbo">
       <div class="jumbotron">
-        <h1>Drop Yard</h1>
+        <h1><span>Drop Yard</span></h1>
+        </div>
       </div>
-  </div>
+    </div>
+    <div class="header-search">
+      <div class="header">
+        <%= form_tag(root_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term], class: "searchbox" %>
+          <%= submit_tag 'Search', name: nil, class: "btn btn-sm" %>
+        <% end %>
+      </div>
       <div id="wrapper" class="">
-          <div class="overlay" style="display: none;"></div>
-          <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                <a href="#"> Drop Yard</a>
-                </li>
-                <li>
-                  <%= link_to "    View Contacts", contacts_path, class: "glyphicon glyphicon-edit menu_link" %>
-                </li>
-                <li>
-                  <a href="#"><i class="glyphicon glyphicon-pencil menu_link"></i>  Sign Up</a>
-                </li>
-                <li>
-                  <a href="#"><i class="glyphicon glyphicon-thumbs-up menu_link"></i>  About</a>
-                </li>
-                <li>
-                  <a href="#"><i class="glyphicon glyphicon-bullhorn menu_link"></i>  Tell Us Something...</a>
-                </li>
-                <li>
-                    <%= link_to "    Help", help_path, class: "glyphicon glyphicon-wrench menu_link" %>
-                  </li>
-            </ul>
-          </nav>
-            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-            <span class="hamb-top"></span>
-            <span class="hamb-middle"></span>
-            <span class="hamb-bottom"></span>
-            </button>
-              <div class="header">
+                <div  class="open">
+                  <span class="cls"></span>
+                  <span>
+                    <ul class="sub-menu ">
+                      <li>
+                        <%= link_to "Home", contacts_path, class: "home" %>
+                      </li>
+                      <li>
+                        <%= link_to 'New Contact', new_contact_path, class: 'new' %>
+                      </li>
+                      <li>
+                        <a href="#jobs" title="tellus">Tell Us...</a>
+                      </li>
+                      <li>
+                        <%= link_to "Help", help_path, class: "help" %>
+                      </li>
+                    </ul>
+                  </span>
+                  <span class="cls"></span>
 
-                  <div class="header-search">
-                    <%= form_tag(root_path, method: :get) do %>
-                      <%= text_field_tag :term, params[:term], class: "searchbox" %>
-                      <%= submit_tag 'Search', name: nil, class: "btn btn-sm" %>
-                    <% end %>
-                  </div>
               </div>
-              
               <div class="content-container">
                   <%= yield %>
               </div>
       </div>
 
 
+<footer class="footer">
+  <div class="grid">
+    <div class="left">
+      <div class="social">
+        <ul>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Github</li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="center"></div>
+
+    <div class="right">
+      <div class="legal">
+        <ul>
+          <li><p>&copy; 2018. All Rights Reserved</p></li>
+          <li><p></p></li>
+          <li>Created by:&nbsp;  <a href="mailto://odloads@live.com">Jesse Hatton</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+</footer>
   <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfGnZi8AkRa26Zjc1NC_HOp7L6L1uR9Gw">
+    src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>">
   </script>
-
   </body>
 </html>
