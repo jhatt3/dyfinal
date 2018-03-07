@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'devise'
 gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'better_errors', group: :development

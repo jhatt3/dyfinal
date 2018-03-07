@@ -33,7 +33,6 @@
           <%= link_to 'Back', contacts_path, class: 'btn btn-sx btn-default' %>
         </div>
                   <!-- <div class="clearfix"></div> -->
-
                   <%= javascript_tag do %>
                     var latitude = '<%= j @contact.latitude.to_s %>';
                     var longitude = '<%= j @contact.longitude.to_s %>';
