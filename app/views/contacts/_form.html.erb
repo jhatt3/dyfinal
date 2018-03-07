@@ -20,23 +20,23 @@
         </div>
 
         <div class="form-group">
-          <%= form.text_field :name, id: :contact_name, placeholder: "Name" %>
+          <%= form.text_field :name.downcase, id: :contact_name, placeholder: "Name" %>
         </div>
 
         <div class="form-group">
-          <%= form.text_field :email, id: :contact_email, placeholder: "Email" %>
+          <%= form.text_field :email.downcase, id: :contact_email, placeholder: "Email" %>
         </div>
 
         <div class="form-group">
-          <%= form.text_field :address, id: :contact_address, placeholder: "Address" %>
+          <%= form.text_field :address.downcase, id: :contact_address, placeholder: "Address" %>
         </div>
 
         <div class="form-group">
-          <%= form.text_field :city, id: :contact_city, placeholder: "City" %>
+          <%= form.text_field :city.downcase, id: :contact_city, placeholder: "City" %>
         </div>
 
         <div class="form-group">
-          <%= form.text_field :state, id: :contact_state, placeholder: "State" %>
+          <%= form.text_field :state.downcase, id: :contact_state, placeholder: "State" %>
         </div>
 
         <div class="form-group">

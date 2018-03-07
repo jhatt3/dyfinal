@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'name' => 'contacts#contacts_by_name'
   get 'cat' => 'contacts#contacts_by_category'
   get 'help' => 'contacts#help'
+  get 'edit' => 'contacts#edit'
   
   # get "contacts/new" => 'contacts#new', :as => :new
 

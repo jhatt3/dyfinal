@@ -265,6 +265,9 @@ h1{
 
 }
 
+.help a {
+    color: #5f5c5c;
+}
 
 .grid .center, .form-group {
     padding-left: 15px;
@@ -320,11 +323,14 @@ h1{
     padding: 0;
     margin: 0;
     border: 0;
+    h1{
+        padding-top: 10px;
+    }
 }
 
 
 .jumbotron h1 {
-    font-family: Eczar;
+    font-family: Lora;
     text-shadow: 2px 2px 3px #a7774a;
     text-align: center;
     color: #dddddd;
@@ -335,34 +341,42 @@ h1{
     width: 7em;
 }
 
-.header {
-    background-color: #ffffff;
+.header, .header a {
+    background-color: #1b1b1b;
+    color: #f9fafa;
     margin-top: 0;
     padding: 0;
     padding-right: 15px;
-    height: auto;
+    height: 60px;
     text-align: right;
+    a {
+        padding: 15px ;
+        margin-bottom: 0;
+    }
 }
 
 .header-search {
-    margin-top: 10px;
+    margin-top: 0px;
     position: relative;
 }
 
-.header-search .btn {
-    background-color: #918e8e; 
-    border-radius: 0;   
+.navbar-header .navbar-brand {
+    font-family: Lora;
+    color: #dee2e6;
 }
 
-.header-search .btn #term {
-    color: #1c1c1c;
-}
-
-.header-search .searchbox #term {
-    border-right: 0;
-    border: 1px #a8a5a5 solid;
-    line-height: 2em;
-//     margin: 6px 0 0 0 ;
+.navbar {
+    font-family: Lora;
+    background-color: #1c1c1c;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    .collapse ul a{
+        color: #ffffff;
+    }
+    .collapse ul a:hover {
+        color: #5f5c5c;
+    }
 }
 
 .help li, a {
@@ -488,10 +502,10 @@ h1{
 
 .footer-nav .btn {
     border: 1px outset;
-    background-color: #6bb4e7;
+    background-color: #141414;
     border-radius: 0;
-    border-color: #5aa8df;
-    color: #1c1c1c;
+    border-color: #1d1d1d;
+    color: #dfdfdf;
     margin: 0;
     margin-left: 0px;
     padding: 1px 0 1px 0;
@@ -499,9 +513,9 @@ h1{
 }
 
 .footer-nav .btn:hover {
-    background-color: #5aa8df;
-    border-color: #6bb4e7;
-    color: #dddddd;
+    background-color: #666565;
+    border-color: #2a2a2b;
+    color: #141414;
     font-weight: 200;
 }
 
