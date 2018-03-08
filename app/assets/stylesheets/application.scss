@@ -230,7 +230,6 @@ h1{
 .grid {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
-    grid-column-gap: 1em;
 
 }
 
@@ -241,7 +240,8 @@ h1{
 }
 
 .show-page .show-page-left {
-    width: 100%;
+    width: 300px;
+
 }
 
 .show-page .show-grid-right {
@@ -363,7 +363,6 @@ h1{
 .navbar-header .navbar-brand {
     font-family: Lora;
     color: #dee2e6;
- 
 }
 
 .navbar {
@@ -484,7 +483,8 @@ h1{
 }
 
 .panel-heading{
-    background-color: #dee2e6;
+    background-color: #ffffff;
+    border-bottom: #5f5c5c;
     padding-left: 3px;
     font-size: 1.5em;
 }
@@ -540,6 +540,7 @@ h1{
         margin: 0;
         padding-left: 60px;
     }
+
 
 }
 /////////////////////feedback page//////////////////////////
