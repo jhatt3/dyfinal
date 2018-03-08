@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Drop Yard</a>
+                <%= link_to "Drop Yard", contacts_path, class: "navbar-brand" %>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -57,7 +57,7 @@
                         <%= link_to 'New Contact', new_contact_path, class: 'new' %>
                       </li>
                       <li>
-                        <a href="#jobs" title="tellus">Tell Us...</a>
+                        <%= link_to "Feedback", feedback_path, class: "Feedback" %>
                       </li>
                       <li>
                         <%= link_to "Help", help_path, class: "help" %>

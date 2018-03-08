@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
-  before_action :all_contacts, only: [:index, :create]
-  before_action :set_contact, only: [:edit, :update, :destroy]
+  before_action :all_contacts, only: [:index, :create, :update, :show]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   
   # So what's going on here? First, we expose the sort_column and sort_direction methods to our helpers. 
@@ -30,11 +30,7 @@ class ContactsController < ApplicationController
     @categories = Category.all
   end
 
-  # GET /contacts/1/edit
-  def edit
-    @categories = Category.all    
-  end
-
+  # GET /contacts/1/edi
   # POST /contacts
   # POST /contacts.json
   def create
@@ -43,7 +39,19 @@ class ContactsController < ApplicationController
 
 
     respond_to do |format|
+      if @contact.save
+        # UserMailer.welcome_email(@user).deliver_now
+        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.json { render :show, status: :created, location: @contact }
+      else
+        format.html { render :new }
+        format.json { render json: @contact.errors, status: :unprocessable_entity }
+      end
+    end
+end
 
+  def show
+    #@contacts = Contact.find(params[:id])
   end
 
   # PATCH/PUT /contacts/1
