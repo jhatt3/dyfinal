@@ -257,7 +257,7 @@ h1{
 
 .map {
     height: 400px;
-    background-image: url('app/assets/images/map.png');
+    background-image: url('https://s3.amazonaws.com/jh3-dropyardbucket/map.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -311,7 +311,7 @@ h1{
 .container .jumbotron {
     border-radius: 0;
     height: 400px;
-    background-image: url('app/assets/images/trucker-hero.jpg');
+    background-image: url('https://s3.amazonaws.com/jh3-dropyardbucket/trucker-hero.jpg');
     background-size: 100% 400px;
     background-repeat: no-repeat;
     object-fit: cover;
